@@ -1,0 +1,8 @@
+# 包含各种垃圾网站。
+
+# firefox中国特供版
+DOMAIN-SUFFIX,firefox.com.cn
+
+# 屏蔽sentry.io，以防止chatgpt plus被清退
+DOMAIN,o33249.ingest.sentry.io
+DOMAIN,openaicom.imgix.net
