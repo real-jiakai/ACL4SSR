@@ -508,3 +508,6 @@ DOMAIN-SUFFIX,kedaibiao.pro
 
 # vscode
 DOMAIN-SUFFIX,visualstudio.com
+
+# gpt ui style
+cdn.oaistatic.com
