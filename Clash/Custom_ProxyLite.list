@@ -509,5 +509,6 @@ DOMAIN-SUFFIX,kedaibiao.pro
 # vscode
 DOMAIN-SUFFIX,visualstudio.com
 
-# gpt ui style
-cdn.oaistatic.com
+# chatgpt 23/11/16 update
+DOMAIN-SUFFIX,oaistatic.com
+DOMAIN-SUFFIX,oaiusercontent.com
