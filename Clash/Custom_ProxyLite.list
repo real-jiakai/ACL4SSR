@@ -512,3 +512,6 @@ DOMAIN-SUFFIX,visualstudio.com
 # chatgpt 23/11/16 update
 DOMAIN-SUFFIX,oaistatic.com
 DOMAIN-SUFFIX,oaiusercontent.com
+
+# microsoft copilot
+DOMAIN,copilot.microsoft.com
