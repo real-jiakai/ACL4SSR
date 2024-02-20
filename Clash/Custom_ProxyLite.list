@@ -515,3 +515,6 @@ DOMAIN-SUFFIX,oaiusercontent.com
 
 # microsoft copilot
 DOMAIN,copilot.microsoft.com
+
+# sm.ms图床
+DOMAIN-SUFFIX,loli.io
