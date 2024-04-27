@@ -519,3 +519,6 @@ DOMAIN,copilot.microsoft.com
 
 # sm.ms图床
 DOMAIN-SUFFIX,loli.io
+
+# coze平台
+DOMAIN-SUFFIX,coze.com
