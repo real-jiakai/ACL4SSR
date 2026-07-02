@@ -4,8 +4,9 @@ on:
   schedule:
     - cron: '0 0 * * *'
   workflow_dispatch:
-    branches:
-      - master
+
+permissions:
+  contents: write
 
 jobs:
   update:
@@ -82,21 +83,21 @@ jobs:
             echo "ERROR: Failed to convert $input_file after $MAX_RETRIES attempts"
             return 1
           }
-          
+
           # 检查 YAML 文件是否有有效内容（排除 payload: 和空行/注释行）
           has_yaml_content() {
             local file=$1
             local content_lines=$(sed '/^payload:$/d; /^#/d; /^$/d' "$file" | wc -l)
             [ "$content_lines" -gt 0 ]
           }
-          
+
           # 检查 LIST 文件是否有有效内容（排除注释和空行）
           has_list_content() {
             local file=$1
             local content_lines=$(sed '/^#/d; /^$/d' "$file" | wc -l)
             [ "$content_lines" -gt 0 ]
           }
-          
+
           # 处理所有分离文件（包括生成的和已存在的）
           for file in Clash/Providers/*_domain.yaml Clash/Providers/*_ip.yaml Clash/Providers/Ruleset/*_domain.yaml Clash/Providers/Ruleset/*_ip.yaml; do
             if [ -f "$file" ]; then
@@ -114,7 +115,7 @@ jobs:
               fi
             fi
           done
-          
+
           for file in Clash/Ruleset/*_domain.list Clash/Ruleset/*_ip.list; do
             if [ -f "$file" ]; then
               filename=$(basename "$file")
@@ -131,9 +132,9 @@ jobs:
               fi
             fi
           done
-          
+
           echo "Conversion completed"
-          
+
           # 清理临时文件
           rm -f Clash/Providers/*_domain.yaml Clash/Providers/*_ip.yaml
           rm -f Clash/Providers/Ruleset/*_domain.yaml Clash/Providers/Ruleset/*_ip.yaml
@@ -149,8 +150,5 @@ jobs:
       - name: Commit and push changes
         uses: EndBug/add-and-commit@v9
         with:
-          message: '[AutoUpdate] Update GFWList rules and mrs files - ${{ env.DATETIME }}'
+          message: '[AutoUpdate] Update GFWList rules and mrs files - ${{ steps.datetime.outputs.datetime }}'
           push: true
-        env:
-          DATETIME: ${{ steps.datetime.outputs.datetime }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
