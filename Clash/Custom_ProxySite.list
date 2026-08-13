@@ -5,3 +5,8 @@ DOMAIN-SUFFIX,naixi.net
 DOMAIN-SUFFIX,ping0.cc
 DOMAIN-SUFFIX,gujiakai.top
 DOMAIN-SUFFIX,missav.ai
+
+# JavDB（DOMAIN-KEYWORD 覆盖 javdb*.com 任意后缀镜像域名）
+DOMAIN-SUFFIX,javdb.com
+DOMAIN-SUFFIX,javdb575.com
+DOMAIN-KEYWORD,javdb
